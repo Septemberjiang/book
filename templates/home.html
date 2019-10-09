@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="../static/css/supersized.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+
+</head>
+<body>
+<div class="page-container">
+    <h1>Login</h1>
+    <form action="" method="post">{% csrf_token %}
+        <input type="text" name="username" class="username" placeholder="Username">
+        <input type="password" name="password" class="password" placeholder="Password">
+        <button type="submit">登陆</button>
+        <a href=""><button type="submit">註冊</button></a>
+        <div class="error"><span>+</span></div>
+    </form>
+</div>
+
+<script src="../static/js/jquery-1.8.2.min.js"></script>
+<script src="../static/js/supersized.3.2.7.min.js"></script>
+<script src="../static/js/supersized-init.js"></script>
+<script src="../static/js/scripts.js"></script>
+
+<ul id="supersized" class="quality" style="visibility: visible;">
+    <li class="slide-0" style="visibility: visible; opacity: 1;">
+        <a target="_blank">
+            <img
+                src="../static/img/backgrounds/1.jpg" style="width: 1583px; left: 0px; top: -393px; height: 1108.1px;">
+        </a>
+    </li>
+    <li class="slide-1 prevslide" style="visibility: visible; opacity: 1;">
+        <a target="_blank">
+            <img
+            src="../static/img/backgrounds/2.jpg" style="width: 1583px; left: 0px; top: -393px; height: 1108.1px;">
+        </a>
+    </li>
+    <li class="slide-2 activeslide" style="visibility: visible; opacity: 1;">
+        <a target="_blank">
+            <img
+            src="../static/img/backgrounds/3.jpg"
+            style="width: 1583px; height: 1060.61px; left: 0px; top: -369.5px;">
+        </a></li>
+</ul>
+</body>
+</html>
