@@ -16,6 +16,7 @@ class log(View):
 
 class register(View):
     def get(self, request):
+        print('0000')
         return render(request,'register.html')
 
     def post(self,request):
@@ -27,8 +28,8 @@ class register(View):
         username = User.objects.filter(username=user_name)
         if username:
             return HttpResponse("用户名已存在。")
-        # user = User()
-        # user.username=user_name
-        # user.password=password
-        # user.save()
+        user = User()
+        user.username=user_name
+        user.password=password
+        user.save()
 
