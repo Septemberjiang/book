@@ -20,7 +20,7 @@ from django.contrib import admin
 from Book.views import log, register
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', log),
-    path('register/', register),
+    path('login/', log.as_view()),
+    path('register/', register.as_view()),
 
 ]
