@@ -28,6 +28,7 @@ class BookHome(View):
 
 class register(View):
     def get(self, request):
+        print('0000')
         return render(request,'register.html')
 
     def post(self,request):
@@ -36,11 +37,17 @@ class register(View):
         username = User.objects.filter(username=user_name)
         if username:
             return HttpResponse("用户名已存在。")
+<<<<<<< HEAD
         # models.User.objects.create(name=user_name)
         # models.User.objects.create()
+=======
+>>>>>>> a076d82972b13a07d194ce79a6f7d04b7e08f64a
         user = User()
         user.username=user_name
         user.password=password
         user.save()
+<<<<<<< HEAD
         return render(request, 'home.html')
+=======
+>>>>>>> a076d82972b13a07d194ce79a6f7d04b7e08f64a
 
