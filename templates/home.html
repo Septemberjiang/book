@@ -18,6 +18,7 @@
     <form action="" method="post">{% csrf_token %}
         <input type="text" name="username" class="username" placeholder="Username">
         <input type="password" name="password" class="password" placeholder="Password">
+        <p>{{ err_msg }}</p>
         <button type="submit">登陆</button>
         <a href="/register/">註冊</a>
         <div class="error"><span>+</span></div>

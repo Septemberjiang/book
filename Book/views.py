@@ -1,34 +1,46 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from Book import models
 from Book.models import User
 from django.views import View
 
+
 class log(View):
     def get(self,request):
-        # class_name = request.POST.get('class_name')
-        # models.Classes.objects.create(name=class_name)
-        # return  redirect('/class_list/')
         return render(request,'home.html')
     def post(self,request):
-        user_name = request.data.get('username')
-        password = request.data.get('password')
+        user_name = request.POST.get('username')
+        password = request.POST.get('password')
+        log_list = models.User.objects.filter(username=user_name)
+        pwd = models.User.objects.filter(password=password)
+        if log_list and pwd:
+            return redirect('/bookhome/')
+        else:
+            err_msg = '用户名或密码错误'
+        return render(request, 'home.html',{'err_msg':err_msg})
+
+
+class BookHome(View):
+    # @login_required
+    def get(self,request):
+        return render(request,'book_home.html')
 
 class register(View):
     def get(self, request):
         return render(request,'register.html')
 
     def post(self,request):
-        print('---->',request)
         user_name = request.POST.get('username')
-        print('user_name:',user_name)
         password = request.POST.get('password')
-        print('password:',password)
         username = User.objects.filter(username=user_name)
         if username:
             return HttpResponse("用户名已存在。")
-        # user = User()
-        # user.username=user_name
-        # user.password=password
-        # user.save()
+        # models.User.objects.create(name=user_name)
+        # models.User.objects.create()
+        user = User()
+        user.username=user_name
+        user.password=password
+        user.save()
+        return render(request, 'home.html')
 

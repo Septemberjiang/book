@@ -17,10 +17,11 @@ from django.urls import path
 
 from django.contrib import admin
 
-from Book.views import log, register
+from Book.views import log, register, BookHome
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', log.as_view()),
     path('register/', register.as_view()),
+    path('bookhome/', BookHome.as_view()),
 
 ]
