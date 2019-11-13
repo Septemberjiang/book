@@ -58,8 +58,8 @@ def shopping(request):
     return render(request, 'zhifubaoshopping.html', {'goods_list': goods_list})
 alipay = AliPay(
     appid='2016101700705285',
-    app_notify_url='http://127.0.0.1:8081/show_msg/',  # 支付宝发送支付状态信息的地址，支付宝会向这个地址发送post请求，可以先不写但是必须有内容(我这里用的是空格)
-    return_url='http://127.0.0.1:8081/show_msg/',  # 将用户浏览器地址重定向回原来的地址，支付宝会向这个地址发送get请求，可以先不写但是必须有内容
+    app_notify_url='http://47.93.246.49:8081/show_msg/',  # 支付宝发送支付状态信息的地址，支付宝会向这个地址发送post请求，可以先不写但是必须有内容(我这里用的是空格)
+    return_url='http://47.93.246.49:8081/show_msg/',  # 将用户浏览器地址重定向回原来的地址，支付宝会向这个地址发送get请求，可以先不写但是必须有内容
     alipay_public_key_path='Book/utils/alipay/zhi_fu_bao_gong_yao.txt',  # 支付宝公钥
     app_private_key_path='Book/utils/alipay/ying_yong_si_yao.txt',  # 应用私钥
     debug=True,  # 默认是True代表测试环境，False代表正式环境
