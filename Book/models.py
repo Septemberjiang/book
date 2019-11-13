@@ -32,3 +32,10 @@ class User(models.Model):
 
     class Meta:
         db_table = "User"
+
+# 支付宝支付用
+class BookShoppingOrdering(models.Model):
+    order_number = models.CharField(max_length=64)
+    status_choices = ((0, '未支付'), (1, '已支付'))
+    order_status = models.IntegerField(choices=status_choices, default=0)
+    goods = models.ForeignKey(to='BookName', on_delete=models.CASCADE)

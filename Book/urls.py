@@ -18,10 +18,16 @@ from django.urls import path
 from django.contrib import admin
 
 from Book.views import log, register, BookHome
+from Book import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', log.as_view()),
     path('register/', register.as_view()),
     path('bookhome/', BookHome.as_view()),
+    # 支付宝
+    path('book/',views.shopping),
+    path('purchase/<goods_id>/',views.purchase),
+    path('show_msg/',views.show_msg),
+    # path('check_order/',views.check_order)
 
 ]
